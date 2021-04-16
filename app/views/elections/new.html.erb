@@ -1,0 +1,29 @@
+<h1>Create A New Election</h1>
+<%= form_with model: @election, url: create_path do |form| %>
+
+    <% if form.object.errors.any? %>  
+        <div class="alert alert-danger">
+            <% @election.errors.full_messages.each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+    <%end%>
+
+   <div class="mb-3">
+        <%= form.label :title %>
+        <%= form.text_field :title, class: "form-control", placeholder: "Election Title" %>
+    </div>
+    <div class="mb-3">
+        <%= form.label "Is this a Public Election?" %>
+        <%= form.check_box :ispublic%>
+    </div>
+    <div class="mb-3">
+        <%= form.label "Participants" %>
+        <h6>Please enter each email followed by ','</h6>
+        <%= form.text_field :participants, class: "form-control", placeholder: "steve@gmail.com,jimjoe@yahoo.net,etc..." %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.submit "Create", class: "btn btn-primary"%>
+    </div>
+<% end %>

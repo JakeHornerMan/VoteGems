@@ -1,0 +1,31 @@
+<h1>Create A New Candidate</h1>
+<% @election %>
+<%= form_with model: @candidate, url: create_candidates_path do |form| %>
+
+    <% if form.object.errors.any? %>  
+        <div class="alert alert-danger">
+            <% @candidate.errors.full_messages.each do |message| %>
+                <div><%= message %></div>
+            <% end %>
+        </div>
+    <%end%>
+
+   <div class="mb-3">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: "form-control", placeholder: "Candidate Name" %>
+    </div>
+    <div class="mb-3">
+        <%= form.label "Image URL" %>
+        <h6>this resourse will be loaded in the Election view</h6>
+        <%= form.text_field :image, class: "form-control", placeholder: "candidateImage/url" %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.submit "Create", class: "btn btn-primary"%>
+    </div>
+
+<% end %>
+
+<div class="mb-3">
+    <%= link_to "Finish!", view_candidates_path, class: "btn btn-primary" %>
+</div>

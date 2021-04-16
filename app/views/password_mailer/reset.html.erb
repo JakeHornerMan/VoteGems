@@ -1,0 +1,5 @@
+Hello <%= params[:user].email %>,
+
+You Requested a password Reset for your VoteGems Account!
+Please follow link attached to continue.
+<%= link_to "Reset password", password_reset_edit_url(token: @token) %>

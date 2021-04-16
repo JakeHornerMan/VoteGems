@@ -1,0 +1,53 @@
+<h1>User Created Elections</h1>
+<%if @createdbyelections.empty? %>
+  <h3 style="color:blue;">No Availiable Elections</h3>
+<% else %>
+  <% @createdbyelections.each do |election| %>
+
+  <div class="card">
+    <div class="card-body">
+      <h5 style= "float:left;"><%= election.title %></h5>
+      <%= link_to "View", select_elections_path(election), class: "btn btn-primary", style:"float:right;"%> 
+    </div>
+  </div>
+
+  <% end %>
+<% end %>
+
+<br></br>
+
+<h1>Public Elections</h1>
+
+<%if @publicelections.empty? %>
+  <h3 style="color:blue;">No Availiable Elections</h3>
+<% else %>
+  <% @publicelections.each do |election| %>
+
+  <div class="card">
+    <div class="card-body">
+      <h5 style= "float:left;"><%= election.title %></h5>
+      <%= link_to "View", select_elections_path(election), class: "btn btn-primary", style:"float:right;"%> 
+    </div>
+  </div>
+
+  <% end %>
+<% end %>
+
+<br></br>
+
+<h1>Your Private Elections</h1>
+
+<%if @privelections.empty? %>
+  <h3 style="color:blue;">No Availiable Elections</h3>
+<% else %>
+  <% @privelections.each do |election| %>
+
+  <div class="card">
+    <div class="card-body">
+      <h5 style= "float:left;"><%= election.title %></h5>
+      <%= link_to "View", select_elections_path(election), class: "btn btn-primary", style:"float:right;"%> 
+    </div>
+  </div>
+
+  <% end %>
+<% end %>
